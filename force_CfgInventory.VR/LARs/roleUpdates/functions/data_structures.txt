@@ -1,0 +1,104 @@
+﻿//MetaData structure
+[
+	[
+		[
+			"Assault",
+			F:\My Documents\Arma 3 - Other Profiles\Dev\missions\Examples\force_CfgInventory.VR\description.ext/CfgRoles/Assault,
+			"\A3\Ui_f\data\GUI\Cfg\RespawnRoles\assault_ca.paa"
+		],
+		[
+			[
+				"Rifleman",
+				"Rifleman",
+				F:\My Documents\Arma 3 - Other Profiles\Dev\missions\Examples\force_CfgInventory.VR\description.ext/CfgRespawnInventory/Rifleman
+			]
+		]
+	],
+	[
+		[
+			"Support",
+			F:\My Documents\Arma 3 - Other Profiles\Dev\missions\Examples\force_CfgInventory.VR\description.ext/CfgRoles/Support,
+			"\A3\Ui_f\data\GUI\Cfg\RespawnRoles\support_ca.paa"
+		],
+		[
+			[
+				"MG",
+				"MG",
+				F:\My Documents\Arma 3 - Other Profiles\Dev\missions\Examples\force_CfgInventory.VR\description.ext/CfgRespawnInventory/MG
+			]
+		]
+	],
+	[
+		[
+			"Recon",
+			F:\My Documents\Arma 3 - Other Profiles\Dev\missions\Examples\force_CfgInventory.VR\description.ext/CfgRoles/Recon,
+			"\A3\Ui_f\data\GUI\Cfg\RespawnRoles\recon_ca.paa"
+		],
+		[
+			[
+				"Sniper",
+				"Sniper",
+				F:\My Documents\Arma 3 - Other Profiles\Dev\missions\Examples\force_CfgInventory.VR\description.ext/CfgRespawnInventory/Sniper
+			],
+			[
+				"ABCD",
+				"ABCD",
+				[ missionNamespace, "RECON_ABCD" ] << Example of injected data
+			]
+		]
+	]
+]
+
+
+//LARs_roleData structure
+[
+	[
+		"Assault",
+		[
+			["Rifleman",""]
+		]
+	],
+	[
+		"Support",
+		[
+			["MG",""]
+		]
+	],
+	[
+		"Recon",
+		[
+			["Sniper",""],
+			["ABCD","Recon_ABCD"] << example of a saved loadout
+		]
+	]
+]
+
+
+//profileNamespace data, exactly the same as above except name is changed to BIS_fnc_saveInventory array
+//LARs_roleData
+[
+	[
+		"force_CfgInventory", << Mission name
+		[
+			[
+				"Assault",
+				[
+					["Rifleman",""]
+				]
+			],
+			[
+				"Support",
+				[
+					["MG",""]
+				]
+			],
+			[
+				"Recon",
+				[
+					["Sniper",""],
+					["ABCD",[["",[]],["",[]],["",[]],"","","",["arifle_AK12_F",["","","",""],""],["",["","","",""],""],["",["","","",""],""],["ItemMap"],[]]]
+				]
+			]
+		]
+	]
+]

@@ -1,0 +1,183 @@
+
+//save/load roleData to users profile vars for this mission( 0 - false, 1 - true, default false if not set )
+//Data is saved on a per mission name basis
+LARs_roleData_save = 0;
+
+//Roles to monitor
+//if not defined then no roles are monitored
+//if empty array {} all role loadouts are monitored
+//e.g to monitor only role "SUPPORT" loadout "MG" and "RECON" loadout "ABCD"
+//LARs_roleData_monitor[] = {
+//	{ "SUPPORT", "MG" },
+//	{ "RECON", "ABCD" }
+//};
+LARs_roleData_monitor[] = {};
+
+//Calling
+//[ "RESET" ] call LARs_fnc_roleData
+//will reset the players data for his current role loadout
+//next time he enters the respawn screen
+
+class CfgFunctions
+{
+	#include "LARs\roleUpdates\functions\functions.hpp"
+};
+
+
+//********
+//Nothing below here other than some standard respawnInventories and role definitions
+//********
+
+class CfgRespawnInventory
+{
+
+	class Rifleman
+	{
+	    displayName = "Rifleman"; // Name visible in the menu
+	    icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa"; // Icon displayed next to the name
+	    role = "Assault";
+
+	    // Loadout definition, uses same entries as CfgVehicles classes
+	    weapons[] = {
+	        "arifle_MXC_F",
+	        "Binocular"
+	    };
+	    magazines[] = {
+	        "30Rnd_65x39_caseless_mag",
+	        "30Rnd_65x39_caseless_mag",
+	        "SmokeShell"
+	    };
+	    items[] = {
+	        "FirstAidKit"
+	    };
+	    linkedItems[] = {
+	        "V_Chestrig_khk",
+	        "H_Watchcap_blk",
+	        "optic_Aco",
+	        "acc_flashlight",
+	        "ItemMap",
+	        "ItemCompass",
+	        "ItemWatch",
+	        "ItemRadio"
+	    };
+	    uniformClass = "U_B_CombatUniform_mcam_tshirt";
+	    backpack = "B_AssaultPack_mcamo";
+	};
+	
+	class MG
+	{
+	    // Alternative configuration pointing to a CfgVehicles class. Loadout will be copied from it.
+	    displayName = "MG";
+	    icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+	    role = "Support";
+
+	    // Loadout definition, uses same entries as CfgVehicles classes
+	    weapons[] = {
+	        "LMG_Mk200_F",
+	        "Binocular"
+	    };
+	    magazines[] = {
+	        "200Rnd_65x39_cased_Box",
+	        "200Rnd_65x39_cased_Box"
+	    };
+	    items[] = {
+	        "FirstAidKit"
+	    };
+	    linkedItems[] = {
+	        "V_Chestrig_khk",
+	        "H_Watchcap_blk",
+	        "optic_Aco",
+	        "ItemMap",
+	        "ItemCompass",
+	        "ItemWatch",
+	        "ItemRadio"
+	    };
+	    uniformClass = "U_B_CombatUniform_mcam_tshirt";
+	    backpack = "B_AssaultPack_mcamo";
+	};
+	
+	class Sniper
+	{
+	    // Alternative configuration pointing to a CfgVehicles class. Loadout will be copied from it.
+	    displayName = "Sniper";
+	    icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+	    role = "Recon";
+
+	    // Loadout definition, uses same entries as CfgVehicles classes
+	    weapons[] = {
+	        "srifle_LRR_F",
+	        "Binocular"
+	    };
+	    magazines[] = {
+	        "7Rnd_408_Mag",
+	        "7Rnd_408_Mag",
+	        "7Rnd_408_Mag"
+	    };
+	    items[] = {
+	        "FirstAidKit"
+	    };
+	    linkedItems[] = {
+	        "V_Chestrig_khk",
+	        "H_Watchcap_blk",
+	        "optic_LRPS",
+	        "ItemMap",
+	        "ItemCompass",
+	        "ItemWatch",
+	        "ItemRadio"
+	    };
+	    uniformClass = "U_B_GhillieSuit";
+	    backpack = "";
+	};
+	
+	class ABCD
+	{
+	    // Alternative configuration pointing to a CfgVehicles class. Loadout will be copied from it.
+	    displayName = "ABCD";
+	    icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+	    role = "Recon";
+
+	    // Loadout definition, uses same entries as CfgVehicles classes
+	    weapons[] = {
+	        "srifle_LRR_F",
+	        "Binocular"
+	    };
+	    magazines[] = {
+	        "7Rnd_408_Mag",
+	        "7Rnd_408_Mag",
+	        "7Rnd_408_Mag"
+	    };
+	    items[] = {
+	        "FirstAidKit"
+	    };
+	    linkedItems[] = {
+	        "V_Chestrig_khk",
+	        "H_Watchcap_blk",
+	        "optic_LRPS",
+	        "ItemMap",
+	        "ItemCompass",
+	        "ItemWatch",
+	        "ItemRadio"
+	    };
+	    uniformClass = "U_B_GhillieSuit";
+	    backpack = "";
+	};
+};
+
+class CfgRoles
+{
+	class Assault
+	{
+		displayName = "Assault";
+		icon = "\A3\Ui_f\data\GUI\Cfg\RespawnRoles\assault_ca.paa";
+	};
+	class Support
+	{
+		displayName = "Support";
+		icon = "\A3\Ui_f\data\GUI\Cfg\RespawnRoles\support_ca.paa";
+	};
+	class Recon
+	{
+		displayName = "Recon";
+		icon = "\A3\Ui_f\data\GUI\Cfg\RespawnRoles\recon_ca.paa";
+	};
+};
